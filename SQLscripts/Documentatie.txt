@@ -1,0 +1,9 @@
+	Pentru a putea rula scripturile este necesara rularea scriptului cu numere "CreareDB.sql" din
+proiect "SQLscripts".
+	Ulterior rularii scriptului mentionat mai sus se poate selecta unul din scripturi la alegere
+si se poate porni apasand ctrl+shift+E sau dand click pe triunghiul verde din colt stanga sus
+din fereastra scriptului
+	In cazul in care nu este conectata baza de date by default, se poate selecta al patrulea icon
+dupa triunghiul verde pentru a se conecta by default la serverul local. In cazul in care baza de date nu
+este in serverul conectat, doua iconite mai la dreapta de butonul prezentat mai devreme se afla butonul
+pentru a schimba serverul, pentru a conecta serverul cu baza de date si ulterior baza de date necesara.

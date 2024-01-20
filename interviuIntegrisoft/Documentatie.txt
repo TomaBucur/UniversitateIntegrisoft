@@ -1,0 +1,31 @@
+	Pentru a porni proiectul, recomand "IIS Express", pe https am avut niste probleme 
+locale si s-ar putea sa se repete si pe alte deviceuri. Se apasa butonul F5 si proiectul porneste cu Swagger
+direct in browserul default.
+	Sunt 2 rute(API-ri) ce pot fii testate, pentru a selecta unul din cele 2 se da click stanga pe
+unul din ele si apoi pe butonul din dreapta sus din dropdown "Try it out".
+	1 - GetStudentMateriiNote -> se introduce un id de student de la 1 la 21 in casuta "ID" si apoi
+								"Execute". Ca response din partea serverului se primeste un obiect 
+								de tip JSON cu un obiect student(DTO-ul entitatii student) si o
+								lista materiiSiNote cu lista de materii si note a studentului cu id-ul
+								introdus mai devreme. In cazul in care este introdus un ID care nu exista
+								in baza de date, serverul v-a trimite un raspuns "Studentul nu a fost gasit".
+	2 - GetMedieStudent ->  se introduce un id de student de la 1 la 21 in casuta "ID" si apoi
+								"Execute". Ca response din partea serverului se primeste un numar de tip double
+								care reprezinta media studentului cu id-ul introdus.
+Rutele au accesul restrans. in StudentController prima metoda(ruta) are aplicata atributul [Authorize]
+	pentru a restrange accesul doar celor ce sunt autentificati in aplicatie. Cea de-a doua are pe langa autorizarea
+	clasica si nevoie de un rol special pentru a putea accesa ruta "Admin".
+In cazul in care se doreste a se verifica partea de rol, se poate schimba in atributul celei de-a doua metode(deasupra ei)
+stringul "Admin" cu orice altceva si apoi se poate incerca accesul la ruta respectiva din Swagger cu aceleasi credentiale
+
+In cazul in care nu se introduc credentialele, se v a primi o Eroare de tip "401-Unauthorized Access", 
+
+Autorizarea rutelor:
+
+Credentiale necesare:
+Username: Integrisoft
+Password: interviu
+
+Proiectul are la baza repository pattern pentru a separa logica de acces la date si pentru a facilita testarea. 
+In proiect se folosesc obiecte de tip DTO pentru a trimite doar datele relevante mai departe, securitate si 
+pentru a putea schimba cu usurinta logica din backend fara
