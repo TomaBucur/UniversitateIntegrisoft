@@ -14,7 +14,7 @@ There are two available routes(APIs) for testing in Swagger:
 2. **GetMedieStudent:** Select a student ID (between 1 and 21) and click "Execute." Get the average grade for the specified student.
 
 ### Authorization
-To test authorization, use the following credentials:
+To test authorization, use the following credentials after the Swagger run the app by clicking the "Authorize"  button:
 - **Username:** Integrisoft
 - **Password:** interviu
 
