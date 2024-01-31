@@ -3,7 +3,6 @@
 
 INSERT INTO Grupe (Denumire) VALUES ('E');
 
--- Actualizează studenții cu note sub 5 și asociază-i la grupa 'E'
 UPDATE Student
 SET GrupaId = (
     SELECT Id

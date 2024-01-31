@@ -2,11 +2,11 @@
 
 
 
-SELECT DISTINCT
-  S.Id AS StudentId,
+SELECT
+  DISTINCT S.Id AS StudentId,
   S.Nume,
   S.Prenume,
   N.NotaObtinuta
 FROM Student S
-JOIN Note N ON S.Id = N.StudentId
+  JOIN Note N ON S.Id = N.StudentId
 WHERE N.NotaObtinuta < 5;

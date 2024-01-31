@@ -3,7 +3,7 @@
 
 
 
--- Șterge notele asociate studentului
+-- Sterge notele asociate studentului
 DELETE FROM Note
 WHERE StudentId = (
     SELECT TOP 1 S.Id
@@ -13,7 +13,7 @@ WHERE StudentId = (
     ORDER BY COALESCE(AVG(CONVERT(FLOAT, N.NotaObtinuta)), 0) ASC
 );
 
--- Șterge studentul
+-- Sterge studentul
 DELETE FROM Student
 WHERE Id = (
     SELECT TOP 1 S.Id

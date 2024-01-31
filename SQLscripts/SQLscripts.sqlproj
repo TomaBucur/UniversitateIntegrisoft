@@ -79,5 +79,6 @@
     <None Include="24.sql" />
     <None Include="CreareDB.sql" />
     <None Include="Documentatie.txt" />
+    <None Include="15TemporaryTabel.sql" />
   </ItemGroup>
 </Project>

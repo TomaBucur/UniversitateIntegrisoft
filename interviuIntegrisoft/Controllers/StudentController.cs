@@ -17,6 +17,7 @@ namespace interviuIntegrisoft.Controllers
         {
             StudentService = studentService;
         }
+
         [Authorize]
         [HttpGet("GetStudentMateriiNote/{id}")]
         public async Task<ActionResult> GetStudentAndNotes(int id)
@@ -35,6 +36,7 @@ namespace interviuIntegrisoft.Controllers
                 return BadRequest($"An error occurred: {ex.Message}");
             }
         }
+
         [Authorize(Roles = "Admin")]
         [HttpGet("GetMedieStudent/{id}")]
         public async Task<ActionResult<double>> GetMedieStudent(int id)

@@ -1,23 +1,22 @@
 ﻿--Notele se introduc în ordinea din listă, 
 --	ultima înregistrare reprezentând situația curentă la materia respectivă.
 -- 15. Să se calculeze media generală a fiecărui student ( vezi ** ).
-SELECT
-  S.Id,
-  S.Nume,
-  S.Prenume,
-  COALESCE(AVG(CONVERT(FLOAT, N.NotaObtinuta)), 0) AS MediaGenerala
-FROM Student S
+select
+	S.Id,
+	concat(S.Nume, ' ', S.Prenume) as NumeElev,
+	Round(AVG(convert(float, N.NotaObtinuta)),1) as MedieGenerala
+from Student S
 LEFT JOIN (
-  SELECT
-    N.StudentId,
-    N.MaterieId,
-    MAX(N.Id) AS UltimaNotaId
-  FROM Note N
-  GROUP BY N.StudentId, N.MaterieId
-) UN ON S.Id = UN.StudentId
-LEFT JOIN Note N ON UN.UltimaNotaId = N.Id
-LEFT JOIN Materie M ON N.MaterieId = M.Id
-GROUP BY S.Id, S.Nume, S.Prenume
-ORDER BY S.Id;
+	SELECT
+		N.StudentId,
+		N.MaterieId,
+		MAX(N.Id) as UltimaNotaId
+	from Note N
+	group by N.StudentId, N.MaterieId
+) UN on UN.StudentId = S.Id
+left join Note N on UN.UltimaNotaId = N.Id
+group by S.Id, concat(S.Nume, ' ', S.Prenume) 
+order by S.Id
+
 
 
